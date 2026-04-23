@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #18181b; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+/* ─────────────────────────────────────────
+   PUSH ANIMATION  (push-up rocking motion)
+───────────────────────────────────────── */
+@keyframes push-up-anim {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-6px) rotate(-2deg); }
+  50%  { transform: translateY(0px) rotate(0deg); }
+  75%  { transform: translateY(4px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-push .push-body {
+  transform-origin: center center;
+  animation: push-up-anim 1.4s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   PULL ANIMATION  (vertical pull-up bob)
+───────────────────────────────────────── */
+@keyframes pull-up-anim {
+  0%   { transform: translateY(0px); }
+  40%  { transform: translateY(-14px); }
+  60%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-pull .pull-body {
+  transform-origin: 60px 13px;
+  animation: pull-up-anim 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* ─────────────────────────────────────────
+   SQUAT ANIMATION  (squat up/down)
+───────────────────────────────────────── */
+@keyframes squat-anim {
+  0%   { transform: scaleY(1) translateY(0); }
+  35%  { transform: scaleY(0.82) translateY(6px); }
+  65%  { transform: scaleY(0.82) translateY(6px); }
+  100% { transform: scaleY(1) translateY(0); }
+}
+
+.animate-squat .squat-body {
+  transform-origin: 60px 82px;
+  animation: squat-anim 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ─────────────────────────────────────────
+   CORE ANIMATION  (plank pulse / breathe)
+───────────────────────────────────────── */
+@keyframes core-anim {
+  0%   { transform: translateY(0px) scaleY(1); }
+  50%  { transform: translateY(-3px) scaleY(1.03); }
+  100% { transform: translateY(0px) scaleY(1); }
+}
+
+.animate-core .core-body {
+  transform-origin: center center;
+  animation: core-anim 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   Utility: scale-pulse on rep counter
+───────────────────────────────────────── */
+.scale-125 { transform: scale(1.25); }
+.scale-100 { transform: scale(1); }
+
+/* ─────────────────────────────────────────
+   Smooth transitions
+───────────────────────────────────────── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  touch-action: manipulation;
+}
